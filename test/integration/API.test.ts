@@ -3,7 +3,7 @@ import ResidentialProperty from "../../src/entity/ResidentialProperty";
 
 test("Return residential-properties data in API", async function () {
   const response = await axios({
-    url: "http://localhost:3000/residential-properties",
+    url: "http://localhost:3000/api/residential-properties",
     method: "get",
   });
   const residential_properties_data = response.data;
