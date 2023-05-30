@@ -1,6 +1,7 @@
 import express from "express";
 import config from "./config";
 import ResidentialPropertiesService from "./service/ResidentialPropertyService";
+import DataOverviewService from "./service/DataOverviewService";
 
 const app = express();
 app.get("/api/residential-properties", async function (req, res){
@@ -14,5 +15,11 @@ app.get("/api/residential-properties/job-id/:job_id", async function (req, res) 
     const residentialProperties = await residentialPropertiesService.getResidentialPropertiesByJobId(job_id);
     res.json(residentialProperties);
 });
+app.get("/api/residential-properties-overview/job-id/:job_id", async function (req, res){
+    const job_id = req.params.job_id;
+    const dataOverviewService = new DataOverviewService();
+    const data_overview = await dataOverviewService.getDataOverviewByJobId(job_id);
+    res.json(data_overview)
+})
 app.listen(config.server.port);
 
