@@ -1,0 +1,7 @@
+API Endpoints:
+
+/api/residential-properties - returns all residential properties as ResidentialProperty entities;
+/api/residential-properties/job-id/"job_id" - returns residential properties from specific job_id as ResidentialProperty entities;;
+/api/residential-properties-overview/
+
+returns by region
