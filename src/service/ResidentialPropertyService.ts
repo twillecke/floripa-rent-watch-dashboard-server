@@ -42,8 +42,8 @@ export default class ResidentialPropertiesService {
         const residential_properties_data = await connection.query(
             `select 
                 job_id, address, region, city, state, housing_type, rent_type, price, datetime, cond_price, iptu_price, size_m2, bedroom_count, parking_count, bathroom_count 
-                from public.rent_data where job_id = ${job_id}`,
-                []);
+                from public.rent_data where job_id = $1`,
+                [job_id]);
         const residential_properties: ResidentialProperty[] = [];
         for (const property_data of residential_properties_data) {
             residential_properties.push(

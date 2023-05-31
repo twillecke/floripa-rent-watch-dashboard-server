@@ -25,11 +25,11 @@ export default class ResidentialPropertiesService {
         FROM 
             public.rent_data
         WHERE 
-            job_id = ${job_id}
+            job_id = $1
         GROUP BY
             job_id, 
             DATE(datetime);
-    `, []);
+    `, [job_id]);
 
     const data_row = residential_properties_data[0]; 
 
