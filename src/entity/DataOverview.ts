@@ -1,5 +1,7 @@
 export default class DataOverview{
     constructor (
+        readonly job_id: number | string,
+        readonly date: number | string,
         readonly average_price: number | string,
         readonly average_price_by_rent_type_monthly: number | string,
         readonly average_price_by_rent_type_daily: number | string,
@@ -22,5 +24,8 @@ export default class DataOverview{
             if (average_price_by_quitinete === null) throw new Error("Housing type is required");
             if (average_price_by_rent_type_monthly === null) throw new Error("Rent type is required");
             if (average_price === null) throw new Error("Average price is required");
+            if (job_id === null) throw new Error("Job ID is required");
+            if (date === null) throw new Error("Date is required");
+
     }
 }

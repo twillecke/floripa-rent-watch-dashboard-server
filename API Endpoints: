@@ -1,9 +1,0 @@
-API Endpoints:
-
-/api/residential-properties - returns all residential properties as ResidentialProperty entities;
-/api/residential-properties/job-id/"job_id" - returns residential properties from specific job_id as ResidentialProperty entities;;
-/api/residential-properties-overview/
-
-## "residential-properties" - returns properties as ResidentialProperty entity
-## "residential-properties-overview" - returns clusters of meaningful data of jobs as JobOverview entity;
-
