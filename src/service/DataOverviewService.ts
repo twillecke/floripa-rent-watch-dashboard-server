@@ -12,8 +12,8 @@ export default class ResidentialPropertiesService {
             job_id,
             DATE(datetime) AS date,
             ROUND(AVG(price), 2) AS average_price,
-            ROUND(AVG(price) FILTER (WHERE rent_type = 'M'), 2) AS average_price_by_rent_type_monthly,
-            ROUND(AVG(price) FILTER (WHERE rent_type = 'D'), 2) AS average_price_by_rent_type_daily,
+            ROUND(AVG(price) FILTER (WHERE rent_type = 'monthly'), 2) AS average_price_by_rent_type_monthly,
+            ROUND(AVG(price) FILTER (WHERE rent_type = 'daily'), 2) AS average_price_by_rent_type_daily,
             ROUND(AVG(price) FILTER (WHERE housing_type = 'apartamento'), 2) AS average_price_by_apartamento,
             ROUND(AVG(price) FILTER (WHERE housing_type = 'sobrado'), 2) AS average_price_by_sobrado,
             ROUND(AVG(price) FILTER (WHERE housing_type = 'casa'), 2) AS average_price_by_casa,
@@ -47,10 +47,7 @@ export default class ResidentialPropertiesService {
       parseFloat(data_row.average_size_in_m2),
       parseFloat(data_row.average_bedroom_count),
       parseFloat(data_row.average_parking_count)
-    );
-    
-    console.log(data_overview);
-    
+    );   
     await connection.$pool.end();
     return data_overview;
   }
@@ -61,8 +58,8 @@ export default class ResidentialPropertiesService {
     job_id,
     DATE(datetime) AS date,
     ROUND(AVG(price), 2) AS average_price,
-    ROUND(AVG(price) FILTER (WHERE rent_type = 'M'), 2) AS average_price_by_rent_type_monthly,
-    ROUND(AVG(price) FILTER (WHERE rent_type = 'D'), 2) AS average_price_by_rent_type_daily,
+    ROUND(AVG(price) FILTER (WHERE rent_type = 'monthly'), 2) AS average_price_by_rent_type_monthly,
+    ROUND(AVG(price) FILTER (WHERE rent_type = 'daily'), 2) AS average_price_by_rent_type_daily,
     ROUND(AVG(price) FILTER (WHERE housing_type = 'apartamento'), 2) AS average_price_by_apartamento,
     ROUND(AVG(price) FILTER (WHERE housing_type = 'sobrado'), 2) AS average_price_by_sobrado,
     ROUND(AVG(price) FILTER (WHERE housing_type = 'casa'), 2) AS average_price_by_casa,
@@ -98,10 +95,7 @@ GROUP BY
         parseFloat(data_row.average_parking_count)
       );
       data_overview_array.push(data_overview)
-    }
-
-    console.log(data_overview_array);
-    
+    }    
     await connection.$pool.end();
     return data_overview_array;
   }
