@@ -37,7 +37,7 @@ export default class ResidentialPropertiesService {
         return residential_properties;
     }
 
-    async getResidentialPropertiesByJobId (job_id: string) {
+    async getResidentialPropertiesByJobId (job_id: number) {
         const connection = pgp()(config.database)
         const residential_properties_data = await connection.query(
             `select 

@@ -5,7 +5,7 @@ import pgp from "pg-promise";
 export default class ResidentialPropertiesService {
   constructor() {}
 
-  async getDataOverviewByJobId(job_id : string) {
+  async getDataOverviewByJobId(job_id : number) {
     const connection = pgp()(config.database);
     const residential_properties_data = await connection.query(`
         SELECT 
