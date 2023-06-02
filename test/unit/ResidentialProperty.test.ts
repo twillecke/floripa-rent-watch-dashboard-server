@@ -1,4 +1,4 @@
-import ResidentialProperty from "../../src/entity/ResidentialProperty";
+import ResidentialProperty from "../../src/domain/entity/ResidentialProperty";
 
 
 test("Create residential property entity", function(){

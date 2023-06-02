@@ -1,5 +1,5 @@
 import axios from "axios";
-import ResidentialProperty from "../../src/entity/ResidentialProperty";
+import ResidentialProperty from "../../src/domain/entity/ResidentialProperty";
 
 test("Return residential-properties data in API", async function () {
   const response = await axios({

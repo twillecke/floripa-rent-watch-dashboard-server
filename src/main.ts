@@ -2,16 +2,22 @@ import express from "express";
 import config from "./config";
 import ResidentialPropertiesService from "./service/ResidentialPropertyService";
 import DataOverviewService from "./service/DataOverviewService";
-
+import PgPromiseConnection from "./infra/database/PgPromiseConnection";
+import ResidentialPropertyRepositoryDatabase from "./infra/repository/ResidentialPropertyRepositoryDatabase";
 const app = express();
+
+const connection = new PgPromiseConnection;
+const residentialPropertyRepository = new ResidentialPropertyRepositoryDatabase(connection)
+
+
 app.get("/api/residential-properties", async function (req, res){
-    const residentialPropertiesService = new ResidentialPropertiesService();
+    const residentialPropertiesService = new ResidentialPropertiesService(residentialPropertyRepository);
     const residential_properties = await residentialPropertiesService.getResidentialProperties();
     res.json(residential_properties)
 })
 app.get("/api/residential-properties/job-id/:job_id", async function (req, res) {
     const job_id = req.params.job_id;
-    const residentialPropertiesService = new ResidentialPropertiesService();
+    const residentialPropertiesService = new ResidentialPropertiesService(residentialPropertyRepository);
     const residentialProperties = await residentialPropertiesService.getResidentialPropertiesByJobId(parseInt(job_id));
     res.json(residentialProperties);
 });

@@ -1,4 +1,4 @@
-import DataOverview from "../../src/entity/DataOverview";
+import DataOverview from "../../src/domain/entity/DataOverview";
 
 
 test("Create residential property entity", function(){

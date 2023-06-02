@@ -1,5 +1,5 @@
 import config from "../config";
-import DataOverview from "../entity/DataOverview";
+import DataOverview from "../domain/entity/DataOverview";
 import pgp from "pg-promise";
 
 export default class ResidentialPropertiesService {
