@@ -5,7 +5,9 @@ import DataOverviewService from "./service/DataOverviewService";
 import PgPromiseConnection from "./infra/database/PgPromiseConnection";
 import ResidentialPropertyRepositoryDatabase from "./infra/repository/ResidentialPropertyRepositoryDatabase";
 import DataOverviewRepositoryDatabase from "./infra/repository/DataOverviewRepositoryDatabase";
+import cors from "cors"
 const app = express();
+app.use(cors());
 
 const connection = new PgPromiseConnection;
 const residentialPropertyRepository = new ResidentialPropertyRepositoryDatabase(connection)
