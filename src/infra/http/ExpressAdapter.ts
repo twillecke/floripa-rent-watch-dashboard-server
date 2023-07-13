@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import compression from "compression";
 import Http from "./Http";
 import cors from "cors";
 
@@ -8,6 +9,7 @@ export default class ExpressAdapter implements Http {
 
     constructor() {
         this.app = express();
+        this.app.use(compression());
         this.app.use(cors());
     }
     
