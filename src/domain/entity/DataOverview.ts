@@ -1,6 +1,6 @@
 export default class DataOverview {
     constructor(
-        readonly job_id: number | string,
+        readonly week: number | string,
         readonly total_count: number | string,
         readonly total_avg: number | string,
         readonly total_avg_monthly_count: number | string,
@@ -51,7 +51,7 @@ export default class DataOverview {
         readonly vila_daily_count: number | string,
         readonly vila_daily_avg: number | string,
     ) {
-        if (job_id === null) throw new Error("Job ID is required");
+        if (week === null) throw new Error("Job ID is required");
         if (total_count === null) throw new Error("Total count is required");
         if (total_avg === null) throw new Error("Total average is required");
         if (total_avg_monthly_count === null) throw new Error("Total average monthly count is required");

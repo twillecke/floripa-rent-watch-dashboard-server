@@ -29,10 +29,10 @@ export default class RouteController {
             return data_overview;
         });
 
-        http.route("get", "/api/residential-properties/overview/job-id/:job_id", async function (params: any, body: any){
+        http.route("get", "/api/residential-properties/overview/week/:week", async function (params: any, body: any){
             const dataOverviewRepository = new DataOverviewRepositoryDatabase(connection);
             const dataOverviewService = new DataOverviewService(dataOverviewRepository);
-            const data_overview = await dataOverviewService.getDataOverviewByJobId(parseInt(params.job_id));            
+            const data_overview = await dataOverviewService.getDataOverviewByJobId(parseInt(params.week));            
             return data_overview;
         });
     }

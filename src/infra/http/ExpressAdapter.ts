@@ -1,11 +1,14 @@
 import express, { Request, Response } from "express";
 import Http from "./Http";
+import cors from "cors";
+
 
 export default class ExpressAdapter implements Http {
     app: any;
 
     constructor() {
         this.app = express();
+        this.app.use(cors());
     }
     
     route(method: string, url: string, callback: Function): void {

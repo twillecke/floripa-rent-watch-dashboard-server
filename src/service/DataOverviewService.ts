@@ -6,8 +6,8 @@ import DataOverviewRepository from "../domain/repository/DataOverviewRepository"
 export default class ResidentialPropertiesService {
   constructor(readonly dataOverviewRepository: DataOverviewRepository) {}
 
-  async getDataOverviewByJobId(job_id : number) {
-    const data_overview = await this.dataOverviewRepository.findAllByJobId(job_id);
+  async getDataOverviewByJobId(week : number) {
+    const data_overview = await this.dataOverviewRepository.findAllByJobId(week);
     return data_overview;
   }
   async getDataOverview() {
